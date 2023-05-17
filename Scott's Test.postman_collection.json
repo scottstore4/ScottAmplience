@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "d6db2799-ec09-4bdd-99ad-b16e80c3b748",
+		"name": "Scott's Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3610413"
+	},
+	"item": [
+		{
+			"name": "Scott's test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('responseBody contains all required properties', () => {",
+							"    pm.expect(response).to.have.all.keys(",
+							"        \"login\",",
+							"        \"id\",",
+							"        \"node_id\",",
+							"        \"avatar_url\",",
+							"        \"gravatar_id\",",
+							"        \"url\",",
+							"        \"html_url\",",
+							"        \"followers_url\",",
+							"        \"following_url\",",
+							"        \"gists_url\",",
+							"        \"starred_url\",",
+							"        \"subscriptions_url\",",
+							"        \"organizations_url\",",
+							"        \"repos_url\",",
+							"        \"events_url\",",
+							"        \"received_events_url\",",
+							"        \"type\",",
+							"        \"site_admin\",",
+							"        \"name\",",
+							"        \"company\",",
+							"        \"blog\",",
+							"        \"location\",",
+							"        \"email\",",
+							"        \"hireable\",",
+							"        \"bio\",",
+							"        \"twitter_username\",",
+							"        \"public_repos\",",
+							"        \"public_gists\",",
+							"        \"followers\",",
+							"        \"following\",",
+							"        \"created_at\",",
+							"        \"updated_at\"",
+							"    )",
+							"})",
+							"",
+							"",
+							"",
+							"pm.test(\"Name is Gregory Loscombe\", () => {",
+							"    pm.expect(response.name).to.eql('Gregory Loscombe');",
+							"})",
+							"",
+							"pm.test(\"Id is 15330\", () => {",
+							"    pm.expect(response.id).to.eql(15330);",
+							"})",
+							"",
+							"pm.test(\"Location is Manchester\", () => {",
+							"    pm.expect(response.location).to.eql('Manchester');",
+							"})",
+							"",
+							"pm.test(\"5 Public Repos\", () => {",
+							"    pm.expect(response.public_repos).to.eql(5);",
+							"})",
+							"",
+							"pm.test(\"11 Public Gists\", () => {",
+							"    pm.expect(response.public_gists).to.eql(11);",
+							"})",
+							"",
+							"pm.test(\"Number of Followers\", () => {",
+							"    pm.expect(response.followers).to.eql(19);",
+							"})",
+							"",
+							"pm.test(\"Number Following\", () => {",
+							"    pm.expect(response.following).to.eql(37);",
+							"})",
+							"",
+							"pm.test(\"Check Headers\", () => {",
+							"    pm.response.to.have.header('Server', 'GitHub.com')",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/users/6wl",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"users",
+						"6wl"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
